@@ -1,0 +1,30 @@
+create database esim3;
+
+use esim3;
+
+create table asiakas (
+id_asiakas INT primary key auto_increment,
+etunimi VARCHAR(20),
+sukunimi VARCHAR(20),
+email VARCHAR(50)
+)
+Engine=InnoDB;
+
+INSERT INTO asiakas(etunimi,sukunimi,email) VALUES('Liisa','Joki','liisa.joki@koti.fi');
+INSERT INTO asiakas(etunimi,sukunimi,email) VALUES('Jussi','Joki','jussi.joki@koti.fi');
+
+GRANT ALL ON esim3.* TO 'codeuser'@'localhost' IDENTIFIED BY 'codepass';
+
+create table tilaus (
+id_tilaus INT primary key auto_increment,
+tuote VARCHAR(255),
+id_asiakas INT,
+FOREIGN key (id_asiakas) REFERENCES asiakas(id_asiakas)
+ON DELETE RESTRICT ON UPDATE CASCADE)
+Engine=InnoDB;
+
+INSERT INTO tilaus(tuote,id_asiakas) VALUES ('Televisio',1);
+INSERT INTO tilaus(tuote,id_asiakas) VALUES ('Puhelin',1);
+INSERT INTO tilaus(tuote,id_asiakas) VALUES ('Pesukone',1);
+INSERT INTO tilaus(tuote,id_asiakas) VALUES ('Radio',2);
+INSERT INTO tilaus(tuote,id_asiakas) VALUES ('Kahvinkeitin',2);
