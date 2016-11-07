@@ -3,6 +3,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Asiakas extends CI_Controller {
 
+function __construct() {
+        parent::__construct();
+        //$this->load->model('Asiakas_model');
+    }
+
 public function listaa() {
 	$this->load->model('Asiakas_model');
 	$data['asiakkaat']=$this->Asiakas_model->getAsiakas();
@@ -60,6 +65,27 @@ public function etsi_tilaus() {
 	}
 	$data['sivun_sisalto']='asiakas/etsi_tilaus';
 	$this->load->view('menu/sisalto',$data);
+}
+public function naytaMuokattavaAsiakas($id){
+	$data['asiakas']=$this->Asiakas_model->getValittuAsiakas($id);
+	$data['sivun_sisalto']='asiakas/nayta_Muokattava_Asiakas';
+	$this->load->view('menu/sisalto',$data);
+
+}
+public function paivita_asiakas(){
+	$btn->input->post('btnTallenna');
+	if(isset($btn)){
+	$uusidata=array(
+		'etunimi'=$this->input->post('en'),
+		'sukunimi'=$this->input->post('sn'),
+		'email'=$this->input->post('email')
+		);
+	$id->$this->post('id');
+	$testi->$this->Asiakas_model->updateValittuAsiakas($uusiData,$id);
+	if($testi>1){
+		echo ''
+	}
+	}
 }
 
 }
