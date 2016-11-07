@@ -1,4 +1,4 @@
 <hr>
-Yhteystiedot: Toimitusjohtaja Jussi Juonio
+Yhteystiedot: Toimitusjohtaja Kivers Perse
 </body>
 </html>

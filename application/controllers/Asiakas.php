@@ -72,20 +72,10 @@ public function naytaMuokattavaAsiakas($id){
 	$this->load->view('menu/sisalto',$data);
 
 }
-public function paivita_asiakas(){
-	$btn->input->post('btnTallenna');
-	if(isset($btn)){
-	$uusidata=array(
-		'etunimi'=$this->input->post('en'),
-		'sukunimi'=$this->input->post('sn'),
-		'email'=$this->input->post('email')
-		);
-	$id->$this->post('id');
-	$testi->$this->Asiakas_model->updateValittuAsiakas($uusiData,$id);
-	if($testi>1){
-		echo ''
-	}
-	}
+public function nayta_muokattavat_asiakkaat(){
+	$data['asiakkaat']=$this->Asiakas_model->getAsiakas();
+	$data['sivun_sisalto']='asiakas/nayta_muokattavat_asiakkaat';
+	$this->load->view('menu/sisalto',$data);
 }
 
 }

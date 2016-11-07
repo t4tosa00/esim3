@@ -31,6 +31,6 @@ class Asiakas_model extends CI_Model {
 	public function updateValittuAsiakas($uusiData,$id){
 		$this->db->where('id_asiakas', $id);
 		$this->db->update('asikas', $uusiData);
-		$testi->$this->db->affected_rows($uusiData,$id)
+		$testi->$this->db->affected_rows($uusiData,$id);
 	}
 }
